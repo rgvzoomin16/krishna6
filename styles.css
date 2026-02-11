@@ -1,0 +1,332 @@
+:root {
+  --bg: #fdf4f8;
+  --bg-alt: #f9f6ff;
+  --pink: #ffb6c8;
+  --peach: #ffd7ba;
+  --lavender: #d8ccff;
+  --mint: #ccf2e5;
+  --text: #6c4c67;
+  --text-strong: #4c3151;
+  --white: #fffafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 15%, var(--bg-alt), transparent 42%),
+    radial-gradient(circle at 80% 5%, #ffe9f3, transparent 36%), linear-gradient(155deg, var(--bg), #fff);
+  overflow-x: hidden;
+}
+
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: radial-gradient(#bb9baa 0.35px, transparent 0.35px),
+    radial-gradient(#c9b0bc 0.35px, transparent 0.35px);
+  background-size: 3px 3px, 4px 4px;
+  background-position: 0 0, 1px 1px;
+  z-index: 0;
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.blob {
+  background: var(--white);
+  border: 2px solid rgba(120, 79, 107, 0.12);
+  box-shadow: 0 12px 34px rgba(130, 86, 111, 0.11);
+  padding: clamp(1.2rem, 2vw, 2.2rem);
+  transform-origin: center;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.blob:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 44px rgba(130, 86, 111, 0.15);
+}
+
+.blob-one {
+  border-radius: 58% 42% 48% 52% / 48% 36% 64% 52%;
+  background: linear-gradient(145deg, rgba(255, 214, 232, 0.75), rgba(255, 255, 255, 0.96));
+}
+
+.blob-two {
+  border-radius: 41% 59% 67% 33% / 38% 34% 66% 62%;
+  background: linear-gradient(145deg, rgba(217, 204, 255, 0.34), rgba(255, 255, 255, 0.97));
+}
+
+.blob-three {
+  border-radius: 52% 48% 35% 65% / 46% 56% 44% 54%;
+  background: linear-gradient(145deg, rgba(204, 242, 229, 0.4), rgba(255, 255, 255, 0.97));
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  margin: 0.35rem 0 0.9rem;
+  color: var(--text-strong);
+  line-height: 1.15;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4.8vw, 3.8rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+}
+
+.lead,
+.letter p {
+  margin: 0;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.75;
+}
+
+.love-btn {
+  margin-top: 1.1rem;
+  background: linear-gradient(145deg, var(--pink), #ffc4da);
+  color: #663755;
+  border: 0;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(210, 113, 153, 0.3);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.love-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(210, 113, 153, 0.4);
+  filter: saturate(1.06);
+}
+
+.love-btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.heartbeat-message {
+  min-height: 1.3rem;
+  margin: 0.75rem 0 0;
+  font-weight: 700;
+  color: #8d416d;
+}
+
+.illustration-card {
+  min-height: 290px;
+}
+
+.doodle-wrap {
+  position: relative;
+  width: min(500px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 5/3;
+  border: 3px dashed rgba(109, 73, 106, 0.28);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 215, 186, 0.35), rgba(255, 255, 255, 0.7));
+}
+
+.moon {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 3px solid rgba(108, 76, 103, 0.45);
+  background: #fff8ce;
+  box-shadow: inset -13px -2px 0 #ffe8a6;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff96b9;
+  transform: rotate(-45deg);
+  border: 2px solid rgba(108, 76, 103, 0.35);
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ff96b9;
+  border: 2px solid rgba(108, 76, 103, 0.35);
+}
+
+.heart::before {
+  top: -11px;
+  left: 0;
+}
+
+.heart::after {
+  left: 11px;
+  top: 0;
+}
+
+.heart-a {
+  left: 16%;
+  top: 12%;
+}
+
+.heart-b {
+  left: 31%;
+  top: 21%;
+  animation-delay: -1.2s;
+}
+
+.character {
+  position: absolute;
+  bottom: 12%;
+  width: 108px;
+  height: 160px;
+}
+
+.character.left {
+  left: 18%;
+}
+
+.character.right {
+  right: 18%;
+}
+
+.head {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #ffd9bf;
+  border: 3px solid rgba(108, 76, 103, 0.45);
+}
+
+.body {
+  width: 86px;
+  height: 95px;
+  margin: 3px auto 0;
+  border-radius: 35px 35px 18px 18px;
+  border: 3px solid rgba(108, 76, 103, 0.45);
+}
+
+.left .body {
+  background: var(--lavender);
+}
+
+.right .body {
+  background: var(--peach);
+}
+
+.holding-heart {
+  position: absolute;
+  left: 50%;
+  bottom: 23%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 52px;
+  height: 52px;
+  background: #ff8ab2;
+  border: 3px solid rgba(108, 76, 103, 0.45);
+}
+
+.holding-heart::before,
+.holding-heart::after {
+  content: '';
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ff8ab2;
+  border: 3px solid rgba(108, 76, 103, 0.45);
+}
+
+.holding-heart::before {
+  top: -28px;
+  left: 0;
+}
+
+.holding-heart::after {
+  left: 28px;
+  top: 0;
+}
+
+.signature {
+  margin-top: 1rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #8d416d;
+}
+
+@keyframes floatUp {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .character {
+    width: 86px;
+    height: 130px;
+  }
+
+  .head {
+    width: 46px;
+    height: 46px;
+  }
+
+  .body {
+    width: 70px;
+    height: 72px;
+  }
+
+  .holding-heart {
+    width: 40px;
+    height: 40px;
+    bottom: 26%;
+  }
+
+  .holding-heart::before,
+  .holding-heart::after {
+    width: 40px;
+    height: 40px;
+  }
+
+  .holding-heart::before {
+    top: -22px;
+  }
+
+  .holding-heart::after {
+    left: 22px;
+  }
+}
